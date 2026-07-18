@@ -1,4 +1,5 @@
 import { StoreProvider, useStore } from './store';
+import { AuthProvider } from './lib/authContext';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import CartDrawer from './components/CartDrawer';
@@ -29,6 +30,13 @@ import {
   TrackPage,
   WishlistPage,
 } from './pages/MiscPages';
+import {
+  ForgotPasswordPage,
+  ProfilePage,
+  ProtectedRoute,
+  SignInPage,
+  SignUpPage,
+} from './pages/AuthPages';
 
 function HomePage() {
   return (
@@ -64,6 +72,10 @@ function Router() {
     case 'account': return <AccountPage />;
     case 'wishlist': return <WishlistPage />;
     case 'track': return <TrackPage />;
+    case 'signin': return <SignInPage />;
+    case 'signup': return <SignUpPage />;
+    case 'forgot': return <ForgotPasswordPage />;
+    case 'profile': return <ProtectedRoute><ProfilePage /></ProtectedRoute>;
     default: return <HomePage />;
   }
 }
@@ -86,7 +98,9 @@ function Shell() {
 function App() {
   return (
     <StoreProvider>
-      <Shell />
+      <AuthProvider>
+        <Shell />
+      </AuthProvider>
     </StoreProvider>
   );
 }

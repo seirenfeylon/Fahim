@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
-import { Heart, Menu, Moon, Search, ShoppingBag, Sun, User, X } from 'lucide-react';
+import { Heart, LogOut, Menu, Moon, Search, ShoppingBag, Sun, User, X } from 'lucide-react';
 import { useStore } from '../store';
+import { useAuth } from '../lib/authContext';
 import type { Route } from '../types';
 
 const links: { label: string; route: Route }[] = [
@@ -16,9 +17,11 @@ const links: { label: string; route: Route }[] = [
 ];
 
 export default function Navbar() {
-  const { navigate, route, cartCount, setCartOpen, wishlist, theme, toggleTheme, setSearchOpen } = useStore();
+  const { navigate, route, cartCount, setCartOpen, wishlist, theme, toggleTheme, setSearchOpen, toast } = useStore();
+  const { user, logout, ready } = useAuth();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [userMenu, setUserMenu] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -122,13 +125,45 @@ export default function Navbar() {
                 </span>
               )}
             </button>
-            <button
-              onClick={() => go({ name: 'account' })}
-              aria-label="Account"
-              className="hidden sm:grid h-10 w-10 place-items-center rounded-full text-ink-700 dark:text-ink-200 transition-colors hover:bg-black/5 dark:hover:bg-white/10"
-            >
-              <User size={18} />
-            </button>
+            <div className="relative hidden sm:block">
+              <button
+                onClick={() => (ready && user ? setUserMenu((v) => !v) : go({ name: 'signin' }))}
+                aria-label="Account"
+                className="grid h-10 w-10 place-items-center rounded-full text-ink-700 dark:text-ink-200 transition-colors hover:bg-black/5 dark:hover:bg-white/10"
+              >
+                {user?.photoURL ? (
+                  <img src={user.photoURL} alt="" className="h-7 w-7 rounded-full object-cover" />
+                ) : user ? (
+                  <span className="grid h-7 w-7 place-items-center rounded-full bg-ink-900 text-xs font-bold text-white dark:bg-white dark:text-ink-900">
+                    {(user.displayName?.[0] || user.email?.[0] || 'P').toUpperCase()}
+                  </span>
+                ) : (
+                  <User size={18} />
+                )}
+              </button>
+              {userMenu && user && (
+                <>
+                  <div className="fixed inset-0 z-10" onClick={() => setUserMenu(false)} />
+                  <div className="absolute right-0 top-12 z-20 w-56 overflow-hidden rounded-2xl glass-strong shadow-lift animate-scale-in">
+                    <div className="border-b border-black/5 dark:border-white/10 p-4">
+                      <div className="text-sm font-semibold">{user.displayName || 'Parvej Member'}</div>
+                      <div className="truncate text-xs text-ink-500">{user.email}</div>
+                    </div>
+                    <div className="p-2">
+                      <button onClick={() => { go({ name: 'profile' }); setUserMenu(false); }} className="flex w-full items-center gap-2 rounded-xl px-3 py-2.5 text-left text-sm font-medium transition-colors hover:bg-black/5 dark:hover:bg-white/10">
+                        <User size={15} /> Profile
+                      </button>
+                      <button onClick={() => { go({ name: 'wishlist' }); setUserMenu(false); }} className="flex w-full items-center gap-2 rounded-xl px-3 py-2.5 text-left text-sm font-medium transition-colors hover:bg-black/5 dark:hover:bg-white/10">
+                        <Heart size={15} /> Wishlist
+                      </button>
+                      <button onClick={async () => { await logout(); setUserMenu(false); toast('Signed out'); go({ name: 'home' }); }} className="flex w-full items-center gap-2 rounded-xl px-3 py-2.5 text-left text-sm font-medium text-red-600 transition-colors hover:bg-red-50 dark:hover:bg-red-900/20">
+                        <LogOut size={15} /> Sign out
+                      </button>
+                    </div>
+                  </div>
+                </>
+              )}
+            </div>
             <button
               onClick={() => setCartOpen(true)}
               aria-label="Cart"
@@ -189,8 +224,8 @@ export default function Navbar() {
             <button onClick={() => go({ name: 'wishlist' })} className="btn-ghost flex-1">
               <Heart size={16} /> Wishlist
             </button>
-            <button onClick={() => go({ name: 'account' })} className="btn-ghost flex-1">
-              <User size={16} /> Account
+            <button onClick={() => go(user ? { name: 'profile' } : { name: 'signin' })} className="btn-ghost flex-1">
+              <User size={16} /> {user ? 'Profile' : 'Sign In'}
             </button>
             <button onClick={toggleTheme} className="btn-ghost grid h-11 w-11 place-items-center">
               {theme === 'light' ? <Moon size={16} /> : <Sun size={16} />}

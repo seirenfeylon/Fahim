@@ -48,4 +48,8 @@ export type Route =
   | { name: 'checkout' }
   | { name: 'account' }
   | { name: 'wishlist' }
-  | { name: 'track' };
+  | { name: 'track' }
+  | { name: 'signin' }
+  | { name: 'signup' }
+  | { name: 'forgot' }
+  | { name: 'profile' };
