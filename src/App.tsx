@@ -1,7 +1,6 @@
 import { StoreProvider, useStore } from './store';
 import { AuthProvider } from './lib/authContext';
 import Navbar from './components/Navbar';
-import Hero from './components/Hero';
 import CartDrawer from './components/CartDrawer';
 import SearchModal from './components/SearchModal';
 import Footer from './components/Footer';
@@ -41,18 +40,17 @@ import {
 function HomePage() {
   return (
     <>
-      <Hero />
       <Marquee />
       <FeaturedCollections />
-      <ProductRow id="new-arrivals" eyebrow="Just landed" title="New Arrivals" subtitle="The latest additions to the Parvej wardrobe." filter={(p) => p.tags.includes('new')} cta={{ label: 'Shop all', route: { name: 'shop' } }} />
-      <ProductRow id="trending" eyebrow="Loved this week" title="Trending Now" filter={(p) => p.tags.includes('trending')} cta={{ label: 'Shop all', route: { name: 'shop' } }} />
-      <LimitedEditionBanner />
-      <ProductRow id="best-sellers" eyebrow="Client favorites" title="Best Sellers" subtitle="The pieces our customers return to again and again." filter={(p) => p.tags.includes('bestseller')} cta={{ label: 'Shop all', route: { name: 'shop' } }} />
-      <FlashSale />
       <PremiumCategories />
+      <ProductRow id="new-arrivals" eyebrow="Just landed" title="New Arrivals" subtitle="The latest additions to the Parvej wardrobe." filter={(p) => p.tags.includes('new')} cta={{ label: 'Shop all', route: { name: 'shop' } }} />
+      <ProductRow id="best-sellers" eyebrow="Client favorites" title="Best Sellers" subtitle="The pieces our customers return to again and again." filter={(p) => p.tags.includes('bestseller')} cta={{ label: 'Shop all', route: { name: 'shop' } }} />
+      <ProductRow id="trending" eyebrow="Loved this week" title="Featured Products" filter={(p) => p.tags.includes('trending')} cta={{ label: 'Shop all', route: { name: 'shop' } }} />
+      <LimitedEditionBanner />
       <CustomerReviews />
-      <InstagramFeed />
+      <FlashSale />
       <Newsletter />
+      <InstagramFeed />
       <RecentlyViewed />
     </>
   );

@@ -39,7 +39,7 @@ export function FeaturedCollections() {
   const { navigate } = useStore();
   const ref = useReveal<HTMLDivElement>();
   return (
-    <section className="container-lux py-20 sm:py-24">
+    <section className="container-lux pt-16 pb-20 sm:pt-20 sm:pb-24">
       <div ref={ref} className="reveal">
         <SectionHeading
           eyebrow="Curated edits"
@@ -51,28 +51,36 @@ export function FeaturedCollections() {
             </button>
           }
         />
-        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {collections.map((c, i) => (
-            <button
-              key={c.id}
-              onClick={() => navigate({ name: 'collection', id: c.id })}
-              className="group relative aspect-[3/4] overflow-hidden rounded-2xl text-left"
-              style={{ animationDelay: `${i * 80}ms` }}
-            >
-              <div className="zoom-img absolute inset-0">
-                <img src={c.image} alt={c.name} loading="lazy" className="h-full w-full object-cover" />
-              </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-              <div className="absolute inset-x-0 bottom-0 p-5 text-white">
-                <div className="text-[10px] font-semibold uppercase tracking-[0.28em] text-gold-300">{c.count} pieces</div>
-                <h3 className="mt-2 font-display text-2xl font-bold">{c.name}</h3>
-                <p className="mt-1 text-sm text-white/80">{c.tagline}</p>
-                <div className="mt-4 inline-flex items-center gap-2 text-xs font-semibold opacity-90 transition-all group-hover:gap-3 group-hover:text-gold-300">
-                  Discover <ArrowRight size={14} />
+        <div className="mt-12 grid gap-6 lg:grid-cols-12">
+          {collections.map((c, i) => {
+            const isFeature = i === 0 || i === 3;
+            return (
+              <button
+                key={c.id}
+                onClick={() => navigate({ name: 'collection', id: c.id })}
+                className={`group relative overflow-hidden rounded-3xl text-left transition-all duration-500 hover:shadow-lift animate-fade-up ${
+                  isFeature ? 'lg:col-span-7 aspect-[16/11]' : 'lg:col-span-5 aspect-[16/11]'
+                }`}
+                style={{ animationDelay: `${i * 100}ms` }}
+              >
+                <div className="zoom-img absolute inset-0">
+                  <img src={c.image} alt={c.name} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
                 </div>
-              </div>
-            </button>
-          ))}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent transition-opacity duration-500 group-hover:from-black/90" />
+                <div className="absolute inset-0 border border-white/0 transition-all duration-500 group-hover:border-gold-300/40 rounded-3xl" />
+                <div className="absolute inset-x-0 bottom-0 p-7 text-white sm:p-9">
+                  <div className="flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.3em] text-gold-300">
+                    <span className="h-px w-6 bg-gold-300" /> {c.count} pieces
+                  </div>
+                  <h3 className="mt-3 font-display text-3xl font-bold leading-tight sm:text-4xl">{c.name}</h3>
+                  <p className="mt-2 max-w-xs text-sm text-white/80">{c.tagline}</p>
+                  <div className="mt-5 inline-flex items-center gap-2 text-xs font-semibold tracking-wide opacity-0 transition-all duration-500 group-hover:opacity-100 group-hover:gap-3 group-hover:text-gold-300">
+                    Discover the edit <ArrowRight size={14} />
+                  </div>
+                </div>
+              </button>
+            );
+          })}
         </div>
       </div>
     </section>
