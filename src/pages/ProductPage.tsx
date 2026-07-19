@@ -192,7 +192,7 @@ export default function ProductPage({ id }: { id: string }) {
                   <li key={d} className="flex items-start gap-2 text-sm text-ink-700 dark:text-ink-200"><Check size={16} className="mt-0.5 text-gold-500" /> {d}</li>
                 ))}
               </ul>
-              <p className="text-sm leading-relaxed text-ink-600 dark:text-ink-300">{product.description} Crafted with intention, this piece reflects Parvej's commitment to quality, longevity, and quiet luxury.</p>
+              <p className="text-sm leading-relaxed text-ink-600 dark:text-ink-300">{product.description} Crafted with intention, this piece reflects CrazyFeb's commitment to quality, longevity, and quiet luxury.</p>
             </div>
           )}
           {tab === 'reviews' && (

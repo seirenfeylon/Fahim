@@ -240,7 +240,7 @@ export function CustomerReviews() {
           <SectionHeading
             eyebrow="Loved by 50,000+ clients"
             title="What Our Clients Say"
-            subtitle="Real words from real customers who made Parvej part of their everyday wardrobe."
+            subtitle="Real words from real customers who made CrazyFeb part of their everyday wardrobe."
             align="center"
           />
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -275,9 +275,9 @@ export function InstagramFeed() {
     <section className="container-lux py-20 sm:py-24">
       <div ref={ref} className="reveal">
         <SectionHeading
-          eyebrow="@parvej.atelier"
+          eyebrow="@crazyfeb.atelier"
           title="From Our Instagram"
-          subtitle="Tag #WearParvej for a chance to be featured."
+          subtitle="Tag #WearCrazyFeb for a chance to be featured."
           align="center"
         />
         <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
@@ -326,7 +326,7 @@ export function Newsletter() {
         <div className="absolute -right-16 -top-16 h-56 w-56 rounded-full bg-gold-400/20 blur-3xl" />
         <div className="relative grid items-center gap-8 lg:grid-cols-2">
           <div>
-            <div className="eyebrow">Join the Parvej circle</div>
+            <div className="eyebrow">Join the CrazyFeb circle</div>
             <h2 className="mt-3 font-display text-3xl font-bold sm:text-4xl">Get 20% off your first order</h2>
             <p className="mt-3 max-w-md text-sm text-ink-600 dark:text-ink-300">
               Be the first to know about new collections, private sales, and styling notes — straight to your inbox.

@@ -114,7 +114,7 @@ export function SignInPage() {
       </div>
       <GoogleButton onClick={google} disabled={loading || !configured} />
       <p className="mt-6 text-center text-sm text-ink-500">
-        New to Parvej?{' '}
+        New to CrazyFeb?{' '}
         <button onClick={() => navigate({ name: 'signup' })} className="font-semibold text-ink-900 dark:text-white hover:underline">Create an account</button>
       </p>
     </AuthShell>
@@ -137,7 +137,7 @@ export function SignUpPage() {
     setLoading(true);
     try {
       await signUp(email, password, name);
-      toast('Account created — welcome to Parvej');
+      toast('Account created — welcome to CrazyFeb');
       navigate({ name: 'profile' });
     } catch (e: any) {
       setErr(e.message || 'Sign up failed');
@@ -151,7 +151,7 @@ export function SignUpPage() {
     setLoading(true);
     try {
       await signInWithGoogle();
-      toast('Welcome to Parvej');
+      toast('Welcome to CrazyFeb');
       navigate({ name: 'profile' });
     } catch (e: any) {
       setErr(e.message || 'Google sign in failed');
@@ -165,7 +165,7 @@ export function SignUpPage() {
       <button onClick={() => navigate({ name: 'home' })} className="mb-5 inline-flex items-center gap-2 text-sm text-ink-500 hover:text-ink-900 dark:hover:text-white">
         <ArrowLeft size={16} /> Back to home
       </button>
-      <div className="eyebrow">Join the Parvej circle</div>
+      <div className="eyebrow">Join the CrazyFeb circle</div>
       <h1 className="mt-2 font-display text-3xl font-bold">Create Account</h1>
       <p className="mt-1 text-sm text-ink-500 dark:text-ink-300">Early access to collections, private sales, and 20% off your first order.</p>
       {!configured && <div className="mt-4"><Error message="Firebase is not configured. Add your credentials to .env to enable authentication." /></div>}
@@ -296,7 +296,7 @@ export function ProfilePage() {
               {(user?.displayName?.[0] || user?.email?.[0] || 'P').toUpperCase()}
             </div>
             <div>
-              <h2 className="font-display text-xl font-semibold">{user?.displayName || 'Parvej Member'}</h2>
+              <h2 className="font-display text-xl font-semibold">{user?.displayName || 'CrazyFeb Member'}</h2>
               <p className="text-sm text-ink-500">{user?.email}</p>
               <div className="mt-1 inline-flex items-center gap-1.5 rounded-full bg-gold-400/15 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-gold-600">
                 <Shield size={11} /> Verified member

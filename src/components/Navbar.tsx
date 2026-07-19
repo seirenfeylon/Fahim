@@ -72,11 +72,11 @@ export default function Navbar() {
       >
         <nav className="container-lux flex h-16 items-center justify-between gap-4 lg:h-20">
           {/* Logo */}
-          <button onClick={() => go({ name: 'home' })} className="flex items-center gap-2.5">
-            <span className="grid h-9 w-9 place-items-center rounded-xl bg-ink-900 dark:bg-white text-gold-400 dark:text-ink-900 font-display text-lg font-bold">
-              P
-            </span>
-            <span className="font-display text-xl font-bold tracking-tight">Parvej</span>
+          <button onClick={() => go({ name: 'home' })} className="flex items-center gap-2.5 transition-all duration-500 hover:scale-[1.02] hover:drop-shadow-[0_0_10px_rgba(212,175,55,0.4)]">
+            <img src="/branding/icon.svg" alt="CrazyFeb" className="h-9 w-9" />
+            <img src="/branding/logo.svg" alt="CrazyFeb" className="hidden h-8 sm:block dark:hidden" />
+            <img src="/branding/logo-white.svg" alt="CrazyFeb" className="hidden h-8 dark:sm:block" />
+            <span className="font-display text-xl font-bold tracking-tight sm:hidden">CrazyFeb</span>
           </button>
 
           {/* Desktop links */}
@@ -146,7 +146,7 @@ export default function Navbar() {
                   <div className="fixed inset-0 z-10" onClick={() => setUserMenu(false)} />
                   <div className="absolute right-0 top-12 z-20 w-56 overflow-hidden rounded-2xl glass-strong shadow-lift animate-scale-in">
                     <div className="border-b border-black/5 dark:border-white/10 p-4">
-                      <div className="text-sm font-semibold">{user.displayName || 'Parvej Member'}</div>
+                      <div className="text-sm font-semibold">{user.displayName || 'CrazyFeb Member'}</div>
                       <div className="truncate text-xs text-ink-500">{user.email}</div>
                     </div>
                     <div className="p-2">

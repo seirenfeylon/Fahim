@@ -7,7 +7,7 @@ export default function FloatingWidgets() {
   const [showTop, setShowTop] = useState(false);
   const [chatOpen, setChatOpen] = useState(false);
   const [messages, setMessages] = useState<{ from: 'bot' | 'user'; text: string }[]>([
-    { from: 'bot', text: 'Hi! Welcome to Parvej. How can I help you today?' },
+    { from: 'bot', text: 'Hi! Welcome to CrazyFeb. How can I help you today?' },
   ]);
   const [input, setInput] = useState('');
 
@@ -37,7 +37,7 @@ export default function FloatingWidgets() {
               <div className="flex items-center gap-2">
                 <div className="grid h-8 w-8 place-items-center rounded-full bg-gold-400 text-ink-900 font-bold">P</div>
                 <div>
-                  <div className="text-sm font-semibold">Parvej Concierge</div>
+                  <div className="text-sm font-semibold">CrazyFeb Concierge</div>
                   <div className="text-[10px] text-white/70">Typically replies in minutes</div>
                 </div>
               </div>

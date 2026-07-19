@@ -52,7 +52,7 @@ interface StoreState {
 const StoreContext = createContext<StoreState | null>(null);
 
 const COUPONS: Record<string, number> = {
-  PARVEJ10: 0.1,
+  CRAZYFEB10: 0.1,
   LUXURY15: 0.15,
   WELCOME: 0.2,
 };
@@ -72,23 +72,33 @@ export function StoreProvider({ children }: { children: ReactNode }) {
 
   // Theme persistence
   useEffect(() => {
-    const saved = (typeof window !== 'undefined' && localStorage.getItem('parvej-theme')) as 'light' | 'dark' | null;
-    if (saved) setTheme(saved);
+    if (typeof window === 'undefined') return;
+    const saved = (localStorage.getItem('crazyfeb-theme') || localStorage.getItem('parvej-theme')) as 'light' | 'dark' | null;
+    if (saved) {
+      setTheme(saved);
+      localStorage.setItem('crazyfeb-theme', saved);
+      localStorage.removeItem('parvej-theme');
+    }
   }, []);
   useEffect(() => {
     const root = document.documentElement;
     if (theme === 'dark') root.classList.add('dark');
     else root.classList.remove('dark');
-    localStorage.setItem('parvej-theme', theme);
+    localStorage.setItem('crazyfeb-theme', theme);
   }, [theme]);
 
   // Wishlist persistence
   useEffect(() => {
-    const saved = localStorage.getItem('parvej-wishlist');
-    if (saved) setWishlist(JSON.parse(saved));
+    if (typeof window === 'undefined') return;
+    const saved = localStorage.getItem('crazyfeb-wishlist') || localStorage.getItem('parvej-wishlist');
+    if (saved) {
+      setWishlist(JSON.parse(saved));
+      localStorage.setItem('crazyfeb-wishlist', saved);
+      localStorage.removeItem('parvej-wishlist');
+    }
   }, []);
   useEffect(() => {
-    localStorage.setItem('parvej-wishlist', JSON.stringify(wishlist));
+    localStorage.setItem('crazyfeb-wishlist', JSON.stringify(wishlist));
   }, [wishlist]);
 
   // Scroll to top on navigation

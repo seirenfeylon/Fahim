@@ -46,7 +46,7 @@ export const products: Product[] = [
   {
     id: 'p1',
     name: 'Midnight Tailored Blazer',
-    brand: 'Parvej Atelier',
+    brand: 'CrazyFeb Atelier',
     category: 'men',
     gender: 'men',
     price: 24900,
@@ -66,7 +66,7 @@ export const products: Product[] = [
   {
     id: 'p2',
     name: 'Ivory Silk Slip Dress',
-    brand: 'Parvej Atelier',
+    brand: 'CrazyFeb Atelier',
     category: 'women',
     gender: 'women',
     price: 18900,
@@ -86,7 +86,7 @@ export const products: Product[] = [
   {
     id: 'p3',
     name: 'Gold Stitched Cashmere Coat',
-    brand: 'Parvej Atelier',
+    brand: 'CrazyFeb Atelier',
     category: 'women',
     gender: 'women',
     price: 42000,
@@ -105,7 +105,7 @@ export const products: Product[] = [
   {
     id: 'p4',
     name: 'Minimal Leather Sneakers',
-    brand: 'Parvej Studio',
+    brand: 'CrazyFeb Studio',
     category: 'shoes',
     gender: 'unisex',
     price: 12500,
@@ -125,7 +125,7 @@ export const products: Product[] = [
   {
     id: 'p5',
     name: 'Heritage Wool Overcoat',
-    brand: 'Parvej Atelier',
+    brand: 'CrazyFeb Atelier',
     category: 'men',
     gender: 'men',
     price: 38000,
@@ -144,7 +144,7 @@ export const products: Product[] = [
   {
     id: 'p6',
     name: 'Pleated Maxi Skirt',
-    brand: 'Parvej Studio',
+    brand: 'CrazyFeb Studio',
     category: 'women',
     gender: 'women',
     price: 9800,
@@ -163,7 +163,7 @@ export const products: Product[] = [
   {
     id: 'p7',
     name: 'Structured Leather Tote',
-    brand: 'Parvej Atelier',
+    brand: 'CrazyFeb Atelier',
     category: 'bags',
     gender: 'women',
     price: 21500,
@@ -182,7 +182,7 @@ export const products: Product[] = [
   {
     id: 'p8',
     name: 'Merino Crew Sweater',
-    brand: 'Parvej Studio',
+    brand: 'CrazyFeb Studio',
     category: 'men',
     gender: 'men',
     price: 7600,
@@ -202,7 +202,7 @@ export const products: Product[] = [
   {
     id: 'p9',
     name: 'Satin Wrap Blouse',
-    brand: 'Parvej Studio',
+    brand: 'CrazyFeb Studio',
     category: 'women',
     gender: 'women',
     price: 8400,
@@ -221,7 +221,7 @@ export const products: Product[] = [
   {
     id: 'p10',
     name: 'Tailored Wide-Leg Trousers',
-    brand: 'Parvej Atelier',
+    brand: 'CrazyFeb Atelier',
     category: 'men',
     gender: 'men',
     price: 11200,
@@ -240,7 +240,7 @@ export const products: Product[] = [
   {
     id: 'p11',
     name: 'Cashmere Scarf',
-    brand: 'Parvej Atelier',
+    brand: 'CrazyFeb Atelier',
     category: 'accessories',
     gender: 'unisex',
     price: 5400,
@@ -259,7 +259,7 @@ export const products: Product[] = [
   {
     id: 'p12',
     name: 'Leather Chelsea Boots',
-    brand: 'Parvej Studio',
+    brand: 'CrazyFeb Studio',
     category: 'shoes',
     gender: 'men',
     price: 16800,
@@ -313,7 +313,7 @@ export const testimonials = [
     name: 'Nusrat Jahan',
     role: 'Creative Director',
     avatar: `https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=200`,
-    quote: 'Parvej has completely redefined my wardrobe. The quality rivals European maisons, with a sensibility that feels modern and personal.',
+    quote: 'CrazyFeb has completely redefined my wardrobe. The quality rivals European maisons, with a sensibility that feels modern and personal.',
   },
   {
     name: 'Rafi Ahmed',
@@ -325,7 +325,7 @@ export const testimonials = [
     name: 'Maliha Karim',
     role: 'Stylist',
     avatar: `https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg?auto=compress&cs=tinysrgb&w=200`,
-    quote: 'I recommend Parvej to all my clients. It is the rare brand that balances restraint with personality.',
+    quote: 'I recommend CrazyFeb to all my clients. It is the rare brand that balances restraint with personality.',
   },
 ];
 

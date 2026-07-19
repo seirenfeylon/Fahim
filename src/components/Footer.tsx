@@ -52,7 +52,7 @@ export default function Footer() {
   const submit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!email.includes('@')) { toast('Please enter a valid email'); return; }
-    toast('Subscribed — welcome to Parvej');
+    toast('Subscribed — welcome to CrazyFeb');
     setEmail('');
   };
 
@@ -62,8 +62,8 @@ export default function Footer() {
         <div className="grid gap-10 lg:grid-cols-[1.4fr_2fr]">
           <div>
             <div className="flex items-center gap-2.5">
-              <span className="grid h-9 w-9 place-items-center rounded-xl bg-white text-ink-900 font-display text-lg font-bold">P</span>
-              <span className="font-display text-xl font-bold">Parvej</span>
+              <img src="/branding/icon.svg" alt="CrazyFeb" className="h-9 w-9 transition-all duration-500 hover:scale-105 hover:drop-shadow-[0_0_10px_rgba(212,175,55,0.45)]" />
+              <img src="/branding/logo-white.svg" alt="CrazyFeb" className="h-8 transition-all duration-500 hover:drop-shadow-[0_0_10px_rgba(212,175,55,0.45)]" />
             </div>
             <p className="mt-4 max-w-sm text-sm text-white/70">
               Premium fashion crafted for the modern lifestyle. Quiet luxury, made to last — designed in-house, crafted by hand.
@@ -71,7 +71,7 @@ export default function Footer() {
             <div className="mt-5 space-y-2 text-sm text-white/70">
               <div className="flex items-center gap-2"><MapPin size={14} className="text-gold-400" /> Gulshan Avenue, Dhaka 1212, Bangladesh</div>
               <div className="flex items-center gap-2"><Phone size={14} className="text-gold-400" /> +880 1700 000 000</div>
-              <div className="flex items-center gap-2"><Mail size={14} className="text-gold-400" /> care@parvej.atelier</div>
+              <div className="flex items-center gap-2"><Mail size={14} className="text-gold-400" /> care@crazyfeb.atelier</div>
             </div>
             <div className="mt-6 flex gap-2">
               {[Instagram, Facebook, Twitter].map((Icon, i) => (
@@ -105,7 +105,7 @@ export default function Footer() {
 
         <div className="mt-12 grid gap-6 border-t border-white/10 pt-8 lg:grid-cols-2">
           <div>
-            <h4 className="font-display text-lg font-semibold">Join the Parvej circle</h4>
+            <h4 className="font-display text-lg font-semibold">Join the CrazyFeb circle</h4>
             <p className="mt-1 text-sm text-white/70">Early access to collections, private sales, and 20% off your first order.</p>
           </div>
           <form onSubmit={submit} className="flex gap-2">
@@ -119,7 +119,7 @@ export default function Footer() {
 
       <div className="border-t border-white/10">
         <div className="container-lux flex flex-col items-center justify-between gap-3 py-6 text-xs text-white/60 sm:flex-row">
-          <p>© {new Date().getFullYear()} Parvej. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} CrazyFeb. All rights reserved.</p>
           <div className="flex items-center gap-3">
             <span>Visa</span><span>Mastercard</span><span>bKash</span><span>Nagad</span><span>COD</span>
           </div>

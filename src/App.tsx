@@ -43,7 +43,7 @@ function HomePage() {
       <Marquee />
       <FeaturedCollections />
       <PremiumCategories />
-      <ProductRow id="new-arrivals" eyebrow="Just landed" title="New Arrivals" subtitle="The latest additions to the Parvej wardrobe." filter={(p) => p.tags.includes('new')} cta={{ label: 'Shop all', route: { name: 'shop' } }} />
+      <ProductRow id="new-arrivals" eyebrow="Just landed" title="New Arrivals" subtitle="The latest additions to the CrazyFeb wardrobe." filter={(p) => p.tags.includes('new')} cta={{ label: 'Shop all', route: { name: 'shop' } }} />
       <ProductRow id="best-sellers" eyebrow="Client favorites" title="Best Sellers" subtitle="The pieces our customers return to again and again." filter={(p) => p.tags.includes('bestseller')} cta={{ label: 'Shop all', route: { name: 'shop' } }} />
       <ProductRow id="trending" eyebrow="Loved this week" title="Featured Products" filter={(p) => p.tags.includes('trending')} cta={{ label: 'Shop all', route: { name: 'shop' } }} />
       <LimitedEditionBanner />

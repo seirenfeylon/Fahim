@@ -17,7 +17,7 @@ export function AboutPage() {
           <div className="max-w-xl">
             <div className="eyebrow text-gold-300">Our Story</div>
             <h1 className="mt-3 font-display text-4xl font-bold sm:text-5xl">Quiet luxury, made to last</h1>
-            <p className="mt-4 text-white/85">Parvej began with a simple belief: that premium fashion should feel personal, considered, and enduring. We design in-house, source the finest materials, and partner with artisans who care about the craft.</p>
+            <p className="mt-4 text-white/85">CrazyFeb began with a simple belief: that premium fashion should feel personal, considered, and enduring. We design in-house, source the finest materials, and partner with artisans who care about the craft.</p>
           </div>
         </div>
       </section>
@@ -67,7 +67,7 @@ export function ContactPage() {
           {[
             { icon: <MapPin size={18} />, t: 'Visit', d: 'Gulshan Avenue, Dhaka 1212, Bangladesh' },
             { icon: <Phone size={18} />, t: 'Call', d: '+880 1700 000 000 (9am–9pm)' },
-            { icon: <Mail size={18} />, t: 'Email', d: 'care@parvej.atelier' },
+            { icon: <Mail size={18} />, t: 'Email', d: 'care@crazyfeb.atelier' },
           ].map((c) => (
             <div key={c.t} className="card-lux flex items-start gap-4 p-5">
               <div className="grid h-11 w-11 place-items-center rounded-full bg-gold-400/15 text-gold-600">{c.icon}</div>
@@ -166,7 +166,7 @@ export function AccountPage() {
           ))}
         </div>
         <h1 className="font-display text-2xl font-bold">{mode === 'login' ? 'Welcome back' : 'Create your account'}</h1>
-        <p className="mt-1 text-sm text-ink-500">{mode === 'login' ? 'Access your orders, wishlist, and saved details.' : 'Join Parvej for early access and 20% off.'}</p>
+        <p className="mt-1 text-sm text-ink-500">{mode === 'login' ? 'Access your orders, wishlist, and saved details.' : 'Join CrazyFeb for early access and 20% off.'}</p>
         <form onSubmit={(e) => { e.preventDefault(); toast(mode === 'login' ? 'Signed in' : 'Account created — welcome'); navigate({ name: 'home' }); }} className="mt-6 space-y-3">
           {mode === 'signup' && <input required placeholder="Full name" className="input-lux" />}
           <input required type="email" placeholder="Email" className="input-lux" />
