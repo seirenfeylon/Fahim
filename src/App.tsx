@@ -36,6 +36,7 @@ import {
   SignInPage,
   SignUpPage,
 } from './pages/AuthPages';
+import { AdminPage } from './pages/admin/AdminPage';
 
 function HomePage() {
   return (
@@ -79,10 +80,22 @@ function Router() {
 }
 
 function Shell() {
+  const { route } = useStore();
+
+  if (route.name === 'admin') {
+    return (
+      <div className="min-h-screen bg-ink-50 dark:bg-ink-900 text-ink-900 dark:text-white">
+        <main key={`admin-${route.section ?? 'dashboard'}`} className="animate-fade-in">
+          <AdminPage section={route.section} />
+        </main>
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen bg-ink-50 dark:bg-ink-900 text-ink-900 dark:text-white">
       <Navbar />
-      <main key={useStore().route.name} className="animate-fade-in">
+      <main key={route.name} className="animate-fade-in">
         <Router />
       </main>
       <Footer />

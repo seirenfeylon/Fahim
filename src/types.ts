@@ -52,4 +52,7 @@ export type Route =
   | { name: 'signin' }
   | { name: 'signup' }
   | { name: 'forgot' }
-  | { name: 'profile' };
+  | { name: 'profile' }
+  | { name: 'admin'; section?: AdminSection };
+
+export type AdminSection = 'dashboard' | 'products' | 'categories' | 'orders' | 'customers' | 'settings';

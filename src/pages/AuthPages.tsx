@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { AlertCircle, ArrowLeft, Eye, EyeOff, Lock, LogOut, Mail, Shield, User } from 'lucide-react';
 import { useStore } from '../store';
 import { useAuth } from '../lib/authContext';
+import { useAdminAuth } from '../lib/admin/useAdminAuth';
 import { SectionHeading } from '../components/ui';
 
 function AuthShell({ children }: { children: React.ReactNode }) {
@@ -262,6 +263,7 @@ export function ForgotPasswordPage() {
 export function ProfilePage() {
   const { navigate, toast, wishlist } = useStore();
   const { user, logout, updateDisplayName, configured } = useAuth();
+  const { isAdmin } = useAdminAuth();
   const [name, setName] = useState(user?.displayName || '');
   const [editing, setEditing] = useState(false);
   const [saving, setSaving] = useState(false);
@@ -361,6 +363,7 @@ export function ProfilePage() {
                 { label: 'Wishlist', route: { name: 'wishlist' } as const },
                 { label: 'Track an order', route: { name: 'track' } as const },
                 { label: 'Continue shopping', route: { name: 'shop' } as const },
+                ...(isAdmin ? [{ label: 'Admin Dashboard', route: { name: 'admin' as const, section: 'dashboard' as const } }] : []),
               ].map((l) => (
                 <button key={l.label} onClick={() => navigate(l.route)} className="flex items-center justify-between rounded-xl px-3 py-3 text-left text-sm font-medium transition-colors hover:bg-black/5 dark:hover:bg-white/10">
                   {l.label} <ArrowLeft size={14} className="rotate-180 text-ink-400" />
